@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.0</ProjectVersion>
     <DockerTargetOS>Windows</DockerTargetOS>
-    <ProjectGuid>4f6e424b-e06d-4b8f-a0a8-ed621bff52d8</ProjectGuid>
+    <ProjectGuid>2eada9ea-9bfa-4df5-8af7-9088f06d86e4</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>http://{ServiceIPAddress}/api/values</DockerServiceUrl>
     <DockerServiceName>customerapi</DockerServiceName>
