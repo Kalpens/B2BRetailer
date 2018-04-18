@@ -19,14 +19,14 @@ namespace OrderApi.Controllers
             repository = repos;
         }
 
-        // GET: api/orders
+        // GET: api/orders/
         [HttpGet]
         public IEnumerable<Order> Get()
         {
             return repository.GetAll();
         }
 
-        // GET api/products/5
+        // GET api/orders/5
         [HttpGet("{id}", Name = "GetOrder")]
         public IActionResult Get(int id)
         {
