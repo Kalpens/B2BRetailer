@@ -44,8 +44,15 @@ namespace OrderApi.Data
         void IRepository<Order>.Remove(int id)
         {
             var order = db.Orders.FirstOrDefault(p => p.Id == id);
-            db.Orders.Remove(order);
-            db.SaveChanges();
+            if (!order.IsShipped)
+            {
+                db.Orders.Remove(order);
+                db.SaveChanges();
+            }
+            else
+            {
+                throw new Exception("This order has already been shipped.");
+            }
         }
     }
 }

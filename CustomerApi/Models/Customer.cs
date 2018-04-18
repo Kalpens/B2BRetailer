@@ -15,6 +15,6 @@ namespace CustomerApi.Models
         public double Phone { get; set; }
         public string BillingAddress { get; set; }
         public string ShippingAddress { get; set; }
-
+        public bool HasOutstanding { get; set; }
     }
 }
