@@ -1,12 +1,10 @@
-﻿using CustomerApi.Models;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using CustomerApi.Models;
 
 namespace CustomerApi.Data
 {
-    public class DbInitializer
+    public static class DbInitializer
     {
         // This method will create and seed the database.
         public static void Initialize(CustomerApiContext context)
