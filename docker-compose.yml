@@ -3,12 +3,16 @@ version: '3'
 services:
   customerapi:
     image: customerapi
+    ports: 
+     - "8000:80"
     build:
       context: .
       dockerfile: CustomerApi\Dockerfile
 
   orderapi:
     image: orderapi
+    ports: 
+     - "8003:80"
     build:
       context: .
       dockerfile: OrderApi\Dockerfile
@@ -16,6 +20,8 @@ services:
 
   productapi:
     image: productapi
+    ports: 
+    - "8002:80"
     build:
       context: .
       dockerfile: ProductApi\Dockerfile
