@@ -86,5 +86,45 @@ namespace OrderApi.Controllers
             return NoContent();
         }
 
+        // PUT api/products/5
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, [FromBody]Order order)
+        {
+            if (order == null || order.Id != id)
+            {
+                return BadRequest();
+            }
+
+            var modifiedOrder = repository.Get(id);
+
+            if (modifiedOrder == null)
+            {
+                return NotFound();
+            }
+
+            modifiedOrder.CustomerRN = order.CustomerRN;
+            modifiedOrder.Date = order.Date;
+            modifiedOrder.Id = order.Id;
+            modifiedOrder.IsShipped = order.IsShipped;
+            modifiedOrder.ProductId = order.ProductId;
+            modifiedOrder.Quantity = order.Quantity;
+
+            repository.Edit(modifiedOrder);
+            return new NoContentResult();
+        }
+
+        // DELETE api/products/5
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            if (repository.Get(id) == null)
+            {
+                return NotFound();
+            }
+
+            repository.Remove(id);
+            return new NoContentResult();
+        }
+
     }
 }
