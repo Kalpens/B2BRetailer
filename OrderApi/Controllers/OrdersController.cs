@@ -101,10 +101,7 @@ namespace OrderApi.Controllers
             {
                 return NotFound();
             }
-
-            modifiedOrder.CustomerRN = order.CustomerRN;
-            modifiedOrder.Date = order.Date;
-            modifiedOrder.Id = order.Id;
+            
             modifiedOrder.IsShipped = order.IsShipped;
             modifiedOrder.ProductId = order.ProductId;
             modifiedOrder.Quantity = order.Quantity;
