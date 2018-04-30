@@ -51,7 +51,8 @@ namespace OrderApi.Controllers
             RestClient c = new RestClient();
             // You may need to change the port number in the BaseUrl below
             // before you can run the request.
-            c.BaseUrl = new Uri("http://localhost:8000/api/customers/");
+            //c.BaseUrl = new Uri("http://localhost:8000/api/customers/");
+            c.BaseUrl = new Uri("http://customerapi/api/customers/");
             var customerRequest = new RestRequest(order.CustomerRN.ToString(), Method.GET);
             var customerResponse = c.Execute<Customer>(customerRequest);
             var customerInOrder = customerResponse.Data;
@@ -60,9 +61,10 @@ namespace OrderApi.Controllers
                 // You may need to change the port number in the BaseUrl below
                 // before you can run the request.
                 c = new RestClient();
-                c.BaseUrl = new Uri("http://localhost:8002/api/products/");
-                var orderRequest = new RestRequest(order.ProductId.ToString(), Method.GET);
-                var productResponse = c.Execute<Product>(orderRequest);
+                //c.BaseUrl = new Uri("http://localhost:8002/api/products/");
+                c.BaseUrl = new Uri("http://productapi/api/products/");
+                var productRequest = new RestRequest(order.ProductId.ToString(), Method.GET);
+                var productResponse = c.Execute<Product>(productRequest);
                 var orderedProduct = productResponse.Data;
 
                 if (order.Quantity <= orderedProduct.ItemsInStock)
